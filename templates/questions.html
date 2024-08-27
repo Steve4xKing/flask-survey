@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>{{survey.title}}</h1>
+    <h3>{{survey.instructions}}</h3>
+    <p>{{survey.questions[question_id].question}}</p>
+    <!-- <p>{{ survey.questions[question_id].choices}}</p> -->
+    <form action="/questions/{{ question_id }}/answer" method="post">
+        <input type="radio" name="choice" value="Yes">{{ survey.questions[question_id].choices[0]}} <br>
+        <input type="radio" name="choice" value="No"> {{ survey.questions[question_id].choices[1]}} <br>
+        <input type="submit" value="Next">
+    </form>
+{% endblock %}
+        
